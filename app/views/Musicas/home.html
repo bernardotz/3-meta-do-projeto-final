@@ -1,0 +1,48 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Músicas' /}
+
+<div class="content" id="content">
+	<h1>Ultimas atualizações!</h1>
+</div>
+
+<form action="@{musicas.home}" id="divBusca">
+  <input type="search" name="busca" id="txtBusca"/>
+  		<a href="@{musicas.home}">
+  			<img src="@{'/public/images/search.png'}" class="logo-busca" id="btnBusca" alt="Buscar"/>
+  		</a>
+</form><br/><br/>
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>TÍTULO</th>
+			<th>ÁLBUM</th>
+			<th>ADICONADO EM</th>
+			<th>DURAÇÃO</th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list items:musicasDaComunidade, as:'musica'}
+			<tr>
+	    		<th>
+	    			 ${musica.id}
+	    		</th>
+	   		 	<th>
+	    			${musica.titulo}<br/>${musica.autor}
+	    		</th>
+	   		 	<th>
+	   		 		${musica.album}
+	    		</th>
+	   		 	<th>
+	    			${musica.ano}
+	    		</th>
+	    		<th>
+	    			${musica.duracao}
+	    		</th>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+    
+    
+    

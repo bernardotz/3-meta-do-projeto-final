@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Login</title>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta charset="${_response_encoding}">
+	   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+	    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+	    #{get 'moreStyles' /}
+	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+	    
+	    <div class="form" id="form">
+			
+			<a href="@{Musicas.home}">
+				<img src="@{'/public/images/song.png'}" alt="Logo" class="img_logo_login"><br/>
+			</a>
+				    
+	        <form action="@{login.logar}" method="post" class="p-3">
+	    
+	            <div class="content" id="content">
+	                <p>Para continuar, faça login no info-musicas.</p><br/>
+	            </div>
+	        
+	            <div class="login" id="login">
+	                <label class="form-label" for="email">Endereço de e-mail ou nome de usuário</label>
+	                <input class="form-control" type="text" name="email" id="email" placeholder="Endereço de e-mail ou nome de usuário"><br/>
+	            </div>
+	        
+	            <div class="login" id="login">
+	                <label class="form-label" for="senha">Senha</label><br/>
+	                <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha"><br/>
+	            </div>
+	        
+	            <div>
+	                <button class="btn btn-success">ENTRAR</button>
+	            </div>
+	        
+	        </form>
+	    
+	        <form action="@{login.cadastrar}">
+	            <div class=content>
+	                <p>Não tem uma conta?</p>  
+	                <button class="btn btn-success">INSCREVA-SE NO INFO-MUSICAS</button>
+	            </div> 
+	        </form>
+	    </div>
+	    <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}
+	</body>
+</html>

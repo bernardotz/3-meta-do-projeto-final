@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Cadastrar</title>
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta charset="${_response_encoding}">
+	   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+	    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+	    #{get 'moreStyles' /}
+	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	</head>
+	<body>
+	    
+	    <div class="form" id="form">
+
+			<img src="@{'/public/images/song.png'}" alt="Logo" class="img_logo_login"><br/>
+				    
+	        <form action="@{login.salvar}" method="post" class="p-3">
+	    
+	            <div class="content">
+	                <p>Inscreva-se grátis e comece a curtir.</p><br/>
+	            </div>
+	        
+	            <div class="login">
+	                <label class="form-label" for="email">Qual é o seu e-mail?</label>
+	                <input class="form-control" type="text" name="usuario.email" id="email" placeholder="Insira seu e-mail." required><br/>
+	            </div>
+	        
+	            <div class="login">
+	                <label class="form-label" for="senha">Crie uma senha</label><br/>
+	                <input class="form-control" type="password" name="usuario.senha" id="senha" placeholder="Crie uma senha."><br/>
+	            </div>
+	            
+	            <div class="login">
+	                <label class="form-label" for="username">Como devemos chamar você?</label>
+	                <input class="form-control" type="text" name="usuario.username" id="username" placeholder="Insira um nome de perfil." required><br/>
+	            </div>
+	            
+	            <div class="login">
+	                <label class="form-label">Qual a sua data de nascimento?</label>
+	                <div class="row">
+	                	<div class="col">
+	                		<input class="form-control" type="text" name="usuario.dia" maxlength="2" placeholder="DD" required><br/>
+	                	</div>
+	                	<div class="col">
+	                		<select name="usuario.mes" class=form-select>
+	                		<option value="0" selected disabled>Mês</option>
+	                		#{list items:meses, as:'mes'}
+	                			<option #{if usuario?.mes == mes} selected #{/if}>${mes}</option>
+	                		#{/list}
+	                	</select>
+	                	</div>
+	                	<div class="col">
+	                		<input class="form-control" type="text" name="usuario.ano" maxlength="4" placeholder="AAAA" required><br/>
+	                	</div>
+	                </div>
+	            </div>
+	            
+	            <div class="login">
+	                <label class="form-label">Qual é o seu gênero?</label>
+	                <div class="row">
+	                	<div class="col">
+	                		<input class="form-check-input" type="radio" name="usuario.genero" id="genero1" value="masculino" required 
+	                			#{if usuario?.genero == "masculino"} checked #{/if}>
+	                		<label class="form-check-label" for="genero1"> Masculino</label>
+	                	</div>
+	                	<div class="col">
+	                		<input class="form-check-input" type="radio" name="usuario.genero" id="genero2" value="feminino" required
+	                		#{if usuario?.genero == "feminino"} checked #{/if}>
+	                		<label class="form-check-label" for="genero2"> Feminino</label>
+	                	</div>
+	                	<div class="col">
+	                		<input class="form-check-input" type="radio" name="usuario.genero" id="genero3" value="naoBinario" required
+	                		#{if usuario?.genero == "naoBinario"} checked #{/if}>
+	                		<label class="form-check-label" for="genero3"> Não binário</label>
+	                	</div>
+	                	<div class="col">
+	                		<input class="form-check-input" type="radio" name="usuario.genero" id="genero4" value="outro" required
+	                		#{if usuario?.genero == "outro"} checked #{/if}>
+	                		<label class="form-check-label" for="genero4"> Outros</label>
+	                	</div>
+	                </div>
+	            </div>
+	        	<br/><br/>
+	            <div>
+	                <button class="btn btn-success">INSCREVER-SE</button>
+	            </div>
+	        
+	        </form>
+	        
+	        	<div class="conta">
+	        		<p>Já tem uma conta?ﾠ</p>
+	        		<a href="@{login.entrar}">Faça login.</a>
+	        	</div>
+	        	

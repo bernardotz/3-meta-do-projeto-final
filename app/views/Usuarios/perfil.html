@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Músicas' /}
+
+<div class="content" id="content">
+	<h1>Suas Músicas</h1>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>TÍTULO</th>
+			<th>ÁLBUM</th>
+			<th>ADICONADO EM</th>
+			<th>DURAÇÃO</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		#{list items:lista, as:'musica'}
+			<tr>
+	    		<th>
+	    			<p>${musica.id}</p>
+	    		</th>
+	   		 	<th>
+	    			${musica.titulo}<br/>${musica.autor}
+	    		</th>
+	   		 	<th>
+	   		 		${musica.album}
+	    		</th>
+	   		 	<th>
+	    			${musica.ano}
+	    		</th>
+	    		<th>
+	    			${musica.duracao}
+	    		</th>
+	    		<th>
+	    			<a href="@{musicas.editar(musica.id)}" class="btn btn-primary"">Editar</a>
+	    			<a href="@{musicas.remover(musica.id)}" class="btn btn-danger">Remover</a><br/>       			
+	    		</th>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+    
+    
+    

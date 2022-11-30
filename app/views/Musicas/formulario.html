@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Músicas' /}
+
+
+	<div class="form">
+		<form action="@{musicas.salvar}" method="post" class="p-3">
+		
+			<input type="hidden" name="musica.id" value="${musica?.id}">
+		
+			<div class="content">
+	        	<p>Cadastre sua música em nossa plataforma.</p><br/>
+	        </div>
+	        
+	        <div class="login">
+				<label class="form-label" for="titulo">Qual é o nome da música?</label>
+				<input class="form-control" type="text" name="musica.titulo" id="titulo" placeholder="Insira o título." value="${musica?.titulo}" required><br/>
+			</div>
+	        
+			<div class="login">
+				<label class="form-label" for="autor">Qual é o autor da música?</label><br/>
+				<input class="form-control" type="text" name="musica.autor" id="autor" placeholder="Autor da música." value="${musica?.autor}" required><br/>
+			</div>
+	            
+			<div class="login">
+				<label class="form-label" for="album">Qual o nome do Álbum?</label>	
+					<input class="form-control" type="text" name="musica.album" id="album" placeholder="Nome do álbum." value="${musica?.album}" required><br/>
+			</div>
+	            
+			<div class="login">
+				<label class="form-label">Adicionada em:</label>
+	            <div class="row">
+	            	<div class="col">
+	                	<input class="form-control" type="text" name="musica.dia" maxlength="2" placeholder="DD" required><br/>
+	                </div>
+	                
+	                <div class="col">
+	                	<select name="musica.mes" class=form-select>
+	                		<option value="0" selected disabled>Mês</option>
+	                		#{list items:meses, as:'mes'}
+	                			<option #{if musica?.mes == mes} selected #{/if}>${mes}</option>
+	                		#{/list}
+	                	</select>
+	                </div>
+	                
+	                <div class="col">
+	                	<input class="form-control" type="text" name="musica.ano" maxlength="4" placeholder="AAAA" required><br/>
+	                </div>
+				</div>	
+			</div>
+
+			<div class="login">
+				<label class="form-label" for="duracao">Duração da música</label>
+	            <input class="form-control" type="text" name="musica.duracao" id="duracao" placeholder="0:00" value="${musica?.duracao}" required><br/>
+	        </div><br/>
+	        
+	       	<div>
+	        	<button class="btn btn-success">CADASTRAR</button>
+	        </div>
+		</form>
+	</div>
