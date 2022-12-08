@@ -13,7 +13,7 @@ import models.*;
 public class Musicas extends Controller {
 	
 	/**
- 	Exibe todas as musicas que tem no banco de dados
+ 	Exibe todas as musicas que tem no banco de dados e com filtro de pesquisa com o termo pesquisado
      */
 	
 	public static void home() {
@@ -29,20 +29,36 @@ public class Musicas extends Controller {
         render(musicasDaComunidade);
     }
 	
+	/*
+	 * Direciona para o formulario de músicas
+	 */
+	
 	public static void formulario() {
 		List<Meses> meses = Arrays.asList(Meses.values());
         render(meses);
     }
 	
+	/*
+	 * Ao chamar esse método salva a música sendo direcionado para o home, onde é listado as músicas de todos os usuários
+	 */
     public static void salvar(Musica musica) {
         musica.save();
         home();
     }
     
+    /*
+     * Reutiliza a página do formulário de música passando o id do usuário e deixando os campos preenchidos
+     * caso o usuário queira editar algo.   
+     */
+    
     public static void editar(Long id) {
         Musica musica = Musica.findById(id);
         renderTemplate("musicas/formulario.html", musica);
     }
+    
+    /*
+     * Remove a música que o usuário solicitou
+     */
     
     public static void remover(Long id) {
         Musica musica = Musica.findById(id);

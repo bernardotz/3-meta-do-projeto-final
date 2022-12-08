@@ -15,6 +15,10 @@ import models.*;
 @With(Seguranca.class)
 public class Usuarios extends Controller {
 	
+	/*
+	 * Lista todas as músicas do usuário no seu perfil
+	 */
+	
 	public static void perfil() {
 		List<Musica> lista = Musica.findAll();
         render(lista);
